@@ -1,0 +1,11 @@
+<div class="container">
+  <% @articles.each do |article| %>
+    <h1><%= article.title %></h1>
+    <br>
+    <h3><%= article.published_at %></h3>
+    <br>
+    <p><%= article.content %></p>
+  <% end %>
+</div>
+
+<%= render 'shared/form' %>

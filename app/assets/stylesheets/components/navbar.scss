@@ -1,0 +1,16 @@
+.logo img {
+  // aspect-ratio: 1;
+  width: 40px;
+}
+
+.navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu li {
+  list-style: none;
+  display: inline-block;
+}

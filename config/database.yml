@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: postgres_development
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: postgres_test
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: postgres_production
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
