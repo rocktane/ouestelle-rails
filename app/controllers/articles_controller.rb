@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @comment = Comment.new
   end
 
   def new
@@ -25,7 +24,8 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.create! params.require(:article).permit(:title, :content)
+    @article = Article.new(article_params)
+    @article = Article.create! params.require(:article).permit(:title, :content, :published_at, :slug)
     redirect_to @article
   end
 
@@ -34,7 +34,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.update(article_params)
+    @article = Article.find(params[:id])
+    @article.update(article_params)
     if @article.save
       redirect_to @article
     else
@@ -51,6 +52,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :published_at, :slug)
+    params.require(:article).permit(:title, :content, :published_at, :slug, :id)
   end
 end
